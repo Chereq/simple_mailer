@@ -4,7 +4,7 @@ import time
 from email.mime.text import MIMEText
 import smtplib
 
-class Mailer:
+class simple_mailer:
 	def __init__(self, smtp_server, login, password, from_addr):
 		self.smtp_server = smtp_server
 		self.login = login
