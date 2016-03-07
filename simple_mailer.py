@@ -11,6 +11,7 @@ class simple_mailer:
 		self.password = password
 		self.from_addr = from_addr
 		self.sign = None
+		self.from_name = None
 
 	def static_addr(self, static_to):
 		self.static_to = static_to
@@ -20,6 +21,9 @@ class simple_mailer:
 
 	def static_sign(self, sign):
 		self.sign = sign
+
+	def static_from_name(self, from_name):
+		self.from_name = from_name
 
 	def __date_time__(self):
 		return time.strftime('%Y.%m.%d %H:%M:%S', time.localtime(time.time()))
@@ -32,7 +36,7 @@ class simple_mailer:
 		to_addr = dyn_to if dyn_to else self.static_to
 		msg = MIMEText(msg)
 		msg['Subject'] = dyn_subj if dyn_subj else self.static_subj
-		msg['From'] = self.from_addr
+		msg['From'] = self.from_name if self.from_name else self.from_addr
 		msg['To'] = to_addr
 		server = smtplib.SMTP(self.smtp_server)
 		server.starttls()
