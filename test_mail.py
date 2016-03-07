@@ -5,18 +5,21 @@ from email.mime.text import MIMEText
 import smtplib
 
 class Mailer:
-	def __init__(self, smtp_server, login, password, from_addr, sign=None):
+	def __init__(self, smtp_server, login, password, from_addr):
 		self.smtp_server = smtp_server
 		self.login = login
 		self.password = password
 		self.from_addr = from_addr
-		self.sign = sign
-	
+		self.sign = None
+
 	def static_addr(self, static_to):
 		self.static_to = static_to
 
 	def static_subj(self, static_subj):
 		self.static_subj = static_subj
+
+	def static_sign(self, sign):
+		self.sign = sign
 
 	def __date_time__(self):
 		return time.strftime('%Y.%m.%d %H:%M:%S', time.localtime(time.time()))
