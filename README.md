@@ -3,7 +3,7 @@ Simple Python SMTP-mailer class
 
 ## Usage:
 
-mailer = Mailer('smtp.DOMAIN.COM', 'LOGIN', 'PASSWORD', 'FROMADDR@DOMAIN.COM')<br />
+mailer = simple_mailer('smtp.DOMAIN.COM', 'LOGIN', 'PASSWORD', 'FROMADDR@DOMAIN.COM')<br />
 mailer.static_addr('TO@ADDR.COM')<br />
 mailer.static_subj('Hello World!')<br />
 mailer.static_sign('send by send_mail.py')<br />
